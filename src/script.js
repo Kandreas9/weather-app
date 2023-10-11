@@ -11,7 +11,7 @@ let data;
 window.addEventListener("load", async () => {
     let currentDate = new Date();
 
-    if (currentDate.getHours > 12) {
+    if (currentDate.getHours() > 12) {
         wrapper.classList.add("light");
     } else {
         wrapper.classList.add("dark");
@@ -22,7 +22,7 @@ window.addEventListener("load", async () => {
         "https://api.open-meteo.com/v1/forecast?latitude=43.6109&longitude=3.8763&current=temperature_2m&daily=temperature_2m_max&timezone=Europe%2FBerlin"
     );
 
-    if (currentDate.getHours > 12) {
+    if (currentDate.getHours() > 12) {
         sun.classList.add("rotate");
     } else {
         moon.classList.add("rotate");
