@@ -19,7 +19,7 @@ window.addEventListener("load", async () => {
 
     //Fetch api
     const json = await fetch(
-        "https://api.open-meteo.com/v1/forecast?latitude=43.6109&longitude=3.8763&current=temperature_2m&daily=temperature_2m_max&timezone=Europe%2FBerlin"
+        "https://api.open-meteo.com/v1/forecast?latitude=43.6109&longitude=3.8763&current=temperature_2m&daily=temperature_2m_max&timezone=Europe%2FBerlin&forecast_days=14"
     );
 
     if (currentDate.getHours() > 12) {
@@ -36,7 +36,7 @@ window.addEventListener("load", async () => {
     data = await json.json();
     title.textContent = `${data.current.temperature_2m}°C`;
 
-    for (let i = 0; i < 7; i++) {
+    for (let i = 0; i < data.daily.temperature_2m_max.length; i++) {
         const li = document.createElement("li");
         const div = document.createElement("div");
 
